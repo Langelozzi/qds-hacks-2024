@@ -11,6 +11,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import com.bcit.frontend.components.DragAnchors
+import com.bcit.frontend.components.NavBar
 import com.bcit.frontend.components.SwipeableCard
 import com.bcit.frontend.pages.VsPage
 
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            VsPage()
+            NavBar()
         }
     }
 }
