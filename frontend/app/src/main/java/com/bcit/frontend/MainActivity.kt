@@ -11,6 +11,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import com.bcit.frontend.components.DragAnchors
+import com.bcit.frontend.components.DrawerComponent
 import com.bcit.frontend.components.SwipeableCard
 import com.bcit.frontend.components.TextFieldWithIcons
 import com.bcit.frontend.pages.FormPage
@@ -23,7 +24,8 @@ class MainActivity : ComponentActivity() {
         setContent {
 //            VsPage()
 //            TextFieldWithIcons()
-            FormPage()
+//            FormPage()
+        DrawerComponent(taskPageContent = { FormPage() })
 
         }
     }

@@ -22,7 +22,7 @@ fun FormPage() {
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        FormFieldsEnum.values().forEach { formField ->
+        FormFieldsEnum.entries.forEach { formField ->
             // Pass the Modifier.fillMaxWidth() to make each TextFieldWithIcons fill the full width
             TextFieldWithIcons(formField = formField, modifier = Modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp)) // Add space between each TextFieldWithIcons for better spacing
