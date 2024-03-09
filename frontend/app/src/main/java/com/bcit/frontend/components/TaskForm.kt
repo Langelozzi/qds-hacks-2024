@@ -27,7 +27,7 @@ fun TextFieldWithIcons(
         value = text,
         onValueChange = { text = it },
         placeholder = { Text(formField.displayName) },
-        leadingIcon = { Icon(Icons.Filled.Favorite, contentDescription = "${formField.displayName} icon") },
+        leadingIcon = { Icon(formField.icon(), contentDescription = "${formField.displayName} icon") },
         trailingIcon = { Icon(Icons.Filled.Info, contentDescription = "Info for ${formField.displayName}") },
         modifier = modifier.fillMaxWidth() // Apply the modifier to fill max width
 
