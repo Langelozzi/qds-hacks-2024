@@ -1,0 +1,690 @@
+[
+    {
+        "courseNumber": "3800",
+        "courseTitle": "Projects Practicum 1",
+        "crn": "88135",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Farnaz Dargahi",
+        "location": "Downtown",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    },
+    {
+        "courseNumber": "3800",
+        "courseTitle": "Projects Practicum 1",
+        "crn": "88136",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Farnaz Dargahi",
+        "location": "Downtown",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    },
+    {
+        "courseNumber": "3800",
+        "courseTitle": "Projects Practicum 1",
+        "crn": "88137",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    },
+    {
+        "courseNumber": "3800",
+        "courseTitle": "Projects Practicum 1",
+        "crn": "88138",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    },
+    {
+        "courseNumber": "3800",
+        "courseTitle": "Projects Practicum 1",
+        "crn": "88139",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    },
+    {
+        "courseNumber": "3800",
+        "courseTitle": "Projects Practicum 1",
+        "crn": "89245",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+]
+[
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46881",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    },
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46890",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Farnaz Dargahi",
+        "location": "Downtown",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    },
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46891",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Farnaz Dargahi",
+        "location": "Downtown",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    },
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46892",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    },
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46893",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    },
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46894",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46881",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    },
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46890",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Farnaz Dargahi",
+        "location": "Downtown",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    },
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46891",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Farnaz Dargahi",
+        "location": "Downtown",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    },
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46892",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    },
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46893",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    },
+    {
+        "courseNumber": "4800",
+        "courseTitle": "Projects Practicum 2",
+        "crn": "46894",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Hoda Rashedi",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4983",
+        "courseTitle": "Machine Learning",
+        "crn": "44906",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Chi En Huang",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4989",
+        "courseTitle": "Selected Topics in Artificial Intelligence and Machine Learning",
+        "crn": "44907",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Chi En Huang",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4941",
+        "courseTitle": "Client/Server Systems Quality Control",
+        "crn": "19468",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Tejinder Randhawa",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4945",
+        "courseTitle": "Distributed Software Architectures",
+        "crn": "19467",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Tejinder Randhawa",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4964",
+        "courseTitle": "DevOps Engineering",
+        "crn": "43982",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Frederic Guo",
+        "location": "Downtown",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4968",
+        "courseTitle": "Serverless Computing and Microservices",
+        "crn": "43983",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Frederic Guo",
+        "location": "Downtown",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4976",
+        "courseTitle": "Web Application Development with Microsoft Technologies",
+        "crn": "41925",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Medhat Elmasry",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4977",
+        "courseTitle": "Mobile Development with Apple Technologies",
+        "crn": "41926",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Medhat Elmasry",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4921",
+        "courseTitle": "Database Systems 2",
+        "crn": "35505",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Patrick Guichon",
+        "location": "Downtown",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4925",
+        "courseTitle": "Selected Topics in Database Systems",
+        "crn": "50122",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Patrick Guichon",
+        "location": "Downtown",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4981",
+        "courseTitle": "Advanced Network Applications Development",
+        "crn": "89233",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "D'Arcy Smith",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4985",
+        "courseTitle": "Selected Topics in Data Communications/Internetworking",
+        "crn": "15509",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "D'Arcy Smith",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4932",
+        "courseTitle": "Selected Topics in Digital Processing",
+        "crn": "42403",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Dennis Richards",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4995",
+        "courseTitle": "Gaming Systems",
+        "crn": "42447",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Dennis Richards",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4870",
+        "courseTitle": "Intranet Planning and Development",
+        "crn": "49852",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Medhat Elmasry",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4911",
+        "courseTitle": "Developing Enterprise Service",
+        "crn": "19461",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Bruce Link",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4915",
+        "courseTitle": "System Administration",
+        "crn": "16345",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Bruce Link",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4948",
+        "courseTitle": "Predictive Machine Learning",
+        "crn": "88083",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Pat McGee",
+        "location": "Downtown",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4949",
+        "courseTitle": "Big Data Analytics Methods",
+        "crn": "88084",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Pat McGee",
+        "location": "Downtown",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4958",
+        "courseTitle": "Concurrent Programming",
+        "crn": "88104",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Albert Wei",
+        "location": "Downtown",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4959",
+        "courseTitle": "Selected Application of Programming Paradigms",
+        "crn": "88105",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Albert Wei",
+        "location": "Downtown",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+]nullnullnullnull[
+    {
+        "courseNumber": "4952",
+        "courseTitle": "HCI for Application Development",
+        "crn": "35508",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Medhat Elmasry",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4956",
+        "courseTitle": "Software Engineering",
+        "crn": "35510",
+        "endDate": "15-dec-23",
+        "endTime": "0",
+        "instructorName": "Mirela Gutica",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "2990",
+        "courseTitle": "Cooperative Education Workterm 1",
+        "crn": "74530",
+        "endDate": "24-apr-24",
+        "endTime": "0",
+        "instructorName": "Susanna Kan",
+        "location": "Burnaby",
+        "startDate": "03-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "3990",
+        "courseTitle": "Cooperative Education Workterm 2",
+        "crn": "34753",
+        "endDate": "26-dec-23",
+        "endTime": "0",
+        "instructorName": "Susanna Kan",
+        "location": "Burnaby",
+        "startDate": "05-sep-23",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202330"
+    }
+][
+    {
+        "courseNumber": "4537",
+        "courseTitle": "Internet Software Architecture",
+        "crn": "88086",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Amir Amintabar",
+        "location": "Downtown",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    },
+    {
+        "courseNumber": "4537",
+        "courseTitle": "Internet Software Architecture",
+        "crn": "89237",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Amir Amintabar",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+][
+    {
+        "courseNumber": "4736",
+        "courseTitle": "Introduction to Operating Systems",
+        "crn": "90326",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Marco Ho",
+        "location": "Downtown",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    },
+    {
+        "courseNumber": "4736",
+        "courseTitle": "Introduction to Operating Systems",
+        "crn": "90341",
+        "endDate": "19-apr-24",
+        "endTime": "0",
+        "instructorName": "Rahim Oraji",
+        "location": "Burnaby",
+        "startDate": "08-jan-24",
+        "startTime": "0",
+        "subjectCode": "COMP",
+        "subjectDesc": "Computer Systems",
+        "term": "202410"
+    }
+]

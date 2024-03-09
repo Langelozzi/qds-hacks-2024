@@ -1,0 +1,19 @@
+
+using bs4 create a function that given a bs4 object find the following save it into the course class: 
+    a div with the class outline__title that has 2 children with classes outline__course-code and outline__course-name
+    a h3 with the string "Evaluation Criteria"  then the Next element will always be a table. Grab that table and create the dictionary by using the header row Criteria as the key and the % row as the value
+    there is a div that has the class outline__details the child of this class has a table with a tbody with the following inforation. save the information to the correct attribute in the class: 
+    School
+    Program	
+    Course Credits	
+    Minimum Passing Grade	
+    Start Date
+    End Date	
+    Total Hours	
+    Total Weeks	
+    Hours/Weeks	
+    Delivery Type	
+    Prerequisite(s)	
+    CRN	
+    there is a div with the class outline__course-description that has a p child that is a string that is the description of the course
+    

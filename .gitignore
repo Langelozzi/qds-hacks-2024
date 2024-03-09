@@ -1,0 +1,4 @@
+.vscode
+venv
+webScrapper/__pycache__
+webScrapper/.env
