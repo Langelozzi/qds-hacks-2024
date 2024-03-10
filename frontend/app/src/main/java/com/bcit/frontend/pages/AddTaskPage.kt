@@ -25,7 +25,7 @@ import com.bcit.frontend.enums.FormFieldsEnum
 
 
 @Composable
-fun FormPage(onSubmit: (Task) -> Unit) {
+fun FormPage(onSubmit: (Task) -> Unit, addTask : (task: Task) -> Unit) {
     val formFieldValues = remember { mutableStateMapOf<FormFieldsEnum, String>() }
     FormFieldsEnum.entries.forEach { formField ->
         if (!formFieldValues.containsKey(formField)) {
@@ -71,6 +71,7 @@ fun FormPage(onSubmit: (Task) -> Unit) {
                     dueDate = dueDate,
                     difficulty = difficulty
                 )
+                addTask(task)
                 onSubmit(task)
             },
             modifier = Modifier.align(Alignment.CenterHorizontally),

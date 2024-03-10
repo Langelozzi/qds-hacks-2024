@@ -42,8 +42,8 @@ fun App() {
 
     val tasks = remember {
         mutableStateListOf(
-            Task("Lab 6", "Stats", TaskType.LAB, 0.08),
-            Task("Lab 7", "Maths", TaskType.LAB, 0.10)
+            Task("Lab 6", "Stats", TaskType.LAB, 0.08, "10", 1),
+            Task("Lab 7", "Maths", TaskType.LAB, 0.10, "12", 1)
         )
     }
     val removeTask: (Task) -> Unit = {task ->
@@ -54,7 +54,7 @@ fun App() {
         // you should be able to see when this is swiped it gets logged
     }
     val addTask: (Task) -> Unit = { task ->
-        Log.d("Test" , task.course)
+        tasks.add(task)
         // you should be able to see when this is swiped it gets logged
     }
 
@@ -73,7 +73,7 @@ fun App() {
                     VsPage(tasks, taskSwipped)
                 }
                 composable(route = "Home") {
-                    HomePage()
+                    HomePage(addTask)
                 }
                 composable(route = "Complete") {
                     CompletedPage()
