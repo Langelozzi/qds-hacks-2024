@@ -73,7 +73,6 @@ fun SwipeableCard(
                 )
             }
             .anchoredDraggable(draggableCardState, Orientation.Horizontal)
-            .clickable { onClick() }
             .border(BorderStroke( width = 10.dp, color = Color(0xFFFFE264)) ),
     ) {
         content()
