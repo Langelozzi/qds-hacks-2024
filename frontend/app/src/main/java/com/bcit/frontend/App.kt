@@ -1,6 +1,5 @@
 package com.bcit.frontend
 
-import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
@@ -41,27 +40,36 @@ fun App() {
 
     val completedTasks = remember {
         mutableStateListOf(
-            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2),
-            Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2),
+            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.statslab2),
+            Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.algolab3),
         )
     }
 
     val incompleteTasks = remember {
         mutableStateListOf(
-            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2),
-            Task("quiz 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2),
-            Task("midterm 1", "Maths", TaskType.LAB, 0.05, "2022-10-10",2),
-            Task("assignement 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10",2),
+            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.stats2),
+            Task("quiz 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.algolab3),
+            Task("midterm 1", "Maths", TaskType.LAB, 0.05, "2022-10-10",2, R.drawable.ooplab2),
+            Task("assignement 1", "AIML", TaskType.LAB, 0.05, "2022-10-10",2, R.drawable.ooplab1),
+            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.statslab2),
+            Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.algolab3),
         )
     }
-    val displayedTasks = remember {
-        Pair(incompleteTasks[0], incompleteTasks[1])
+    var displayedTasksIndexes = remember{
+        mutableStateListOf(0,1)
+    }
+    var displayedTasks = remember {
+        mutableStateListOf(incompleteTasks[displayedTasksIndexes[0]], incompleteTasks[displayedTasksIndexes[1]])
     }
 
     val removeTask: (Task) -> Unit = { task ->
         // this function should remove the passed task from the list
     }
     val taskSwipped: (Task) -> Unit = { task ->
+        displayedTasksIndexes[0] += 1
+        displayedTasksIndexes[1] += 1
+        displayedTasks[0] = incompleteTasks[displayedTasksIndexes[0]]
+        displayedTasks[1] = incompleteTasks[displayedTasksIndexes[1]]
         // you should be able to see when this is swiped it gets logged
     }
     val addTask: (Task) -> Unit = { task ->
