@@ -18,7 +18,11 @@ import com.bcit.frontend.components.TaskList
 import com.bcit.frontend.dataClasses.Task
 
 @Composable
-fun HomePage(tasks: SnapshotStateList<Task>, addTask: (task: Task) -> Unit) {
+fun HomePage(
+    tasks: SnapshotStateList<Task>,
+    addTask: (task: Task) -> Unit,
+    completeTask: (Task) -> Unit
+) {
     var drawerIsActive by remember { mutableStateOf(false) }
 
     BottomUpDrawerComponent(
@@ -35,7 +39,7 @@ fun HomePage(tasks: SnapshotStateList<Task>, addTask: (task: Task) -> Unit) {
         ) {
             Column{
                 Text(text = "Welcome to the HomePage!")
-                TaskList(tasks = tasks)
+                TaskList(tasks = tasks, completeTask)
             }
         }
     }

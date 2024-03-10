@@ -26,6 +26,7 @@ import com.bcit.frontend.dataClasses.Task
 private fun StatefulTask (task: Task,
                   initState: DragAnchors,
                   density: Density,
+                  completeTask: (Task) -> Unit
                   ) {
 
     var minimized by remember { mutableStateOf(true) }
@@ -45,9 +46,9 @@ private fun StatefulTask (task: Task,
             }
     ) {
         if (minimized) {
-            TaskListItem(dragState, task, {})
+            TaskListItem(dragState, task, completeTask)
         } else {
-            TaskCard(dragState, task, {})
+            TaskCard(dragState, task, completeTask)
         }
     }
 }
@@ -55,7 +56,8 @@ private fun StatefulTask (task: Task,
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TaskList(
-    tasks: SnapshotStateList<Task>
+    tasks: SnapshotStateList<Task>,
+    completeTask: (Task) -> Unit
     ) {
 
     LazyColumn {
@@ -63,7 +65,8 @@ fun TaskList(
             StatefulTask(
                 task = tasks[it],
                 initState = DragAnchors.OnScreen,
-                density = LocalDensity.current
+                density = LocalDensity.current,
+                completeTask
             )
         }
     }
