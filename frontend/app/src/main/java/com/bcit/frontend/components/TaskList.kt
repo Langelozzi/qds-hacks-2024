@@ -49,7 +49,7 @@ fun TaskList(
 
     LazyColumn {
         items(statefulTasks.size) {
-            TaskCard(statefulTasks[it].dragState)
+//            TaskCard(statefulTasks[it].dragState)
         }
     }
 }

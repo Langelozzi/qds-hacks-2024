@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -20,11 +19,10 @@ import androidx.compose.ui.unit.dp
 import com.bcit.frontend.components.DragAnchors
 import com.bcit.frontend.components.TaskCard
 import com.bcit.frontend.dataClasses.Task
-import com.bcit.frontend.dataClasses.TaskType
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun VsPage(tasks : List<Task>, userChoice : (task: Task) -> Unit) {
+fun VsPage(tasks : List<Task>, taskSwipped : (task: Task) -> Unit) {
     // Variables
     val density = LocalDensity.current
     @OptIn(ExperimentalFoundationApi::class)
@@ -61,7 +59,7 @@ fun VsPage(tasks : List<Task>, userChoice : (task: Task) -> Unit) {
 
     Column {
         tasks.mapIndexed { index, item ->
-            TaskCard(draggableCardStates[index], item, userChoice)
+            TaskCard(draggableCardStates[index], item, taskSwipped)
         }
 
     Button(onClick = onButtonClick) {
