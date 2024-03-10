@@ -13,8 +13,8 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -22,10 +22,11 @@ import com.bcit.frontend.components.TextFieldWithIcons
 import com.bcit.frontend.dataClasses.Task
 import com.bcit.frontend.dataClasses.TaskType
 import com.bcit.frontend.enums.FormFieldsEnum
+import java.time.LocalDate
 
 
 @Composable
-fun FormPage(onSubmit: (Task) -> Unit, addTask : (task: Task) -> Unit) {
+fun FormPage(onSubmit: (Task) -> Unit, addTask: (task: Task) -> Unit) {
     val formFieldValues = remember { mutableStateMapOf<FormFieldsEnum, String>() }
     FormFieldsEnum.entries.forEach { formField ->
         if (!formFieldValues.containsKey(formField)) {
@@ -68,7 +69,7 @@ fun FormPage(onSubmit: (Task) -> Unit, addTask : (task: Task) -> Unit) {
                     course = courseName,
                     type = taskType,
                     weight = taskWeight,
-                    dueDate = dueDate,
+                    dueDate = LocalDate.parse(dueDate),
                     difficulty = difficulty
                 )
                 addTask(task)

@@ -2,6 +2,7 @@ package com.bcit.frontend.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.AnchoredDraggableState
@@ -73,7 +74,10 @@ fun SwipeableCard(
                 )
             }
             .anchoredDraggable(draggableCardState, Orientation.Horizontal)
-            .border(BorderStroke( width = 10.dp, color = Color(0xFFFFE264)) ),
+//            .border(BorderStroke( width = 10.dp
+//                ,color = Color(0xFF19AA9D)
+//            ))
+        ,
     ) {
         content()
     }

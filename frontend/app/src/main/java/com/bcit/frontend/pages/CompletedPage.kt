@@ -9,9 +9,7 @@ import com.bcit.frontend.dataClasses.Task
 
 @Composable
 fun CompletedPage(completedTasks: SnapshotStateList<Task>) {
-    BackgroundImage()
     Box{
-        Text("Completed Page")
         TaskList(completedTasks, {})
     }
 }

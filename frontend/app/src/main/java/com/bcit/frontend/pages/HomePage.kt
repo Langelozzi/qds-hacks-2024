@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -25,27 +26,22 @@ fun HomePage(
     completeTask: (Task) -> Unit
 ) {
     var drawerIsActive by remember { mutableStateOf(false) }
-    BottomUpDrawerComponent(
-        taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }, addTask) },
-        showBottomSheet = drawerIsActive,
-        onShowBottomSheetChange = { drawerIsActive = it },
-        onDrawerStateChange = { isActive -> drawerIsActive = isActive }
-    )
-    AnimatedVisibility(
-        visible = !drawerIsActive,
-        modifier = Modifier.background(color = Color.Transparent)
-    ) {
+
+    AnimatedVisibility(visible = !drawerIsActive) {
+
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = Color.Transparent),
+            modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.TopStart
         ) {
-            Column(
-                modifier = Modifier
-                    .background(color = Color.Transparent)
-            ) {
+            Column{
                 TaskList(tasks = tasks, completeTask)
+                BottomUpDrawerComponent(
+                    taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }, addTask) },
+                    showBottomSheet = drawerIsActive,
+                    onShowBottomSheetChange = { drawerIsActive = it },
+                    onDrawerStateChange = { isActive -> drawerIsActive = isActive },
+                )
+
             }
 
         }
