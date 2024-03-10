@@ -44,6 +44,6 @@ To run our Android app, follow these steps:
 - Lucas Angelozzi
 - Cam Fung
 - Elsa Ho
-  Andy Nguyen
+- Andy Nguyen
 - Justin Viacrusis
 
