@@ -3,25 +3,44 @@ package com.bcit.frontend.pages
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.AnchoredDraggableState
+import androidx.compose.foundation.gestures.animateTo
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshots.SnapshotStateList
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.bcit.frontend.components.DragAnchors
 import com.bcit.frontend.components.TaskCard
 import com.bcit.frontend.dataClasses.Task
+import com.bcit.frontend.enums.NavPages
 import com.bcit.frontend.helpers.TaskSorter
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun VsPage(tasksToSort: List<Task>, addSortedTasks: (Array<Task>) -> Unit) {
+fun VsPage(
+    setActivePage: (NavPages) -> Unit,
+    tasksToSort: SnapshotStateList<Task>,
+    addSortedTasks: (Array<Task>) -> Unit,
+    onReSortTasks: () -> Unit,
+) {
     // Variables
     val density = LocalDensity.current
 
@@ -43,7 +62,7 @@ fun VsPage(tasksToSort: List<Task>, addSortedTasks: (Array<Task>) -> Unit) {
         )
     }
     val unsortedTasks = remember {
-        mutableStateListOf(*tasksToSort.toTypedArray())
+        mutableStateListOf<Task>()
     }
     val sortedTasks = remember {
         mutableStateListOf<Task>()
@@ -52,16 +71,18 @@ fun VsPage(tasksToSort: List<Task>, addSortedTasks: (Array<Task>) -> Unit) {
         mutableStateListOf<Task>()
     }
     val nextTasks = remember {
-        mutableStateListOf<Task>().let {
-            if (unsortedTasks.size > 1) {
-                it.add(unsortedTasks.removeAt(0))
-                it.add(unsortedTasks.removeAt(0))
-            }
-            it
-        }
+        mutableStateListOf<Task>()
     }
-    var sortingDone by remember { mutableStateOf(false) }
+    var sortingDone by remember { mutableStateOf(tasksToSort.isEmpty()) }
     var currentTaskRank by remember { mutableIntStateOf(1) }
+
+    val resetStates = {
+        unsortedTasks.clear()
+        sortedTasks.clear()
+        winningTasks.clear()
+        nextTasks.clear()
+        currentTaskRank = 1
+    }
 
 
     val assignTasksToLists = { winningTask: Task, losingTask: Task ->
@@ -88,8 +109,8 @@ fun VsPage(tasksToSort: List<Task>, addSortedTasks: (Array<Task>) -> Unit) {
 
             // add the sorted tasks to the sorted list
             addSortedTasks(calculatedSortedTasks)
-            winningTasks.clear()
-            unsortedTasks.clear()
+
+            resetStates()
             sortingDone = true
         }
         // if there is not enough unsorted to compare but there are winning tasks, so start next round
@@ -114,13 +135,65 @@ fun VsPage(tasksToSort: List<Task>, addSortedTasks: (Array<Task>) -> Unit) {
         updateNextTasks()
     }
 
-    Column {
-        if (nextTasks.size > 1) {
+    // Effects
+    LaunchedEffect(tasksToSort.size) {
+        unsortedTasks.clear()
+        unsortedTasks.addAll(tasksToSort)
+        if (nextTasks.isEmpty()) updateNextTasks()
+    }
+
+    LaunchedEffect(sortingDone) {
+        if (sortingDone) {
+            draggableCardStates[0].animateTo(DragAnchors.OnScreen)
+            draggableCardStates[1].animateTo(DragAnchors.OnScreen)
+        }
+    }
+
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        if (!sortingDone && nextTasks.size > 1) {
             TaskCard(draggableCardStates[0], nextTasks[0], onTaskSwipe)
             TaskCard(draggableCardStates[1], nextTasks[1], onTaskSwipe)
         }
         if (sortingDone) {
-            Text("Sorting Complete!")
+            Card(modifier = Modifier) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+
+                    Text(
+                        modifier = Modifier.padding(top = 10.dp),
+                        text = "TKO! The sorting is done!"
+                    )
+                    Row(
+                        modifier = Modifier.padding(8.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Button(
+                            modifier = Modifier.padding(2.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD352AE)),
+                            onClick = {
+                                onReSortTasks()
+                                sortingDone = false
+                            }) {
+                            Text("Resort")
+                        }
+                        Button(
+                            modifier = Modifier.padding(2.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF198296)),
+                            onClick = {
+                                setActivePage(NavPages.Home)
+                            }) {
+                            Text("View Results")
+                        }
+                    }
+                }
+            }
         }
     }
 

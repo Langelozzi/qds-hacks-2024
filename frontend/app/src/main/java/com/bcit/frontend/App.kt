@@ -146,7 +146,9 @@ fun App() {
         completedTasks.add(task)
     }
 
-    LaunchedEffect(sortedTasks.size) {
+    val onReSortTasks: () -> Unit = {
+        unsortedTasks.addAll(sortedTasks)
+        sortedTasks.clear()
     }
 
 
@@ -169,10 +171,10 @@ fun App() {
                     startDestination = "home"
                 ) {
                     composable(route = "VS") {
-                        VsPage(unsortedTasks.toList(), addSortedTasks)
+                        VsPage(setActivePage, unsortedTasks, addSortedTasks, onReSortTasks)
                     }
                     composable(route = "Home") {
-                        HomePage(sortedTasks, addNewTask, completeTask)
+                        HomePage(setActivePage, sortedTasks, addNewTask, completeTask)
                     }
                     composable(route = "Complete") {
                         CompletedPage(completedTasks)
