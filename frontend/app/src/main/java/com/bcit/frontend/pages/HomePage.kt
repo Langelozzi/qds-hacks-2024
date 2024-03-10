@@ -2,6 +2,7 @@ package com.bcit.frontend.pages
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,14 +27,17 @@ fun HomePage(tasks: SnapshotStateList<Task>, addTask: (task: Task) -> Unit) {
         onShowBottomSheetChange = { drawerIsActive = it },
         onDrawerStateChange = { isActive -> drawerIsActive = isActive }
     )
+
     AnimatedVisibility(visible = !drawerIsActive) {
         Box(
             modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.TopStart
         ) {
-            Text(text = "Welcome to the HomePage!")
+            Column{
+                Text(text = "Welcome to the HomePage!")
+                TaskList(tasks = tasks)
+            }
         }
     }
 
-    TaskList(tasks = tasks)
 }
