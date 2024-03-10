@@ -87,34 +87,37 @@ fun App() {
         completedTasks.add(task)
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-    )
-    {
-
-        NavBar(navController, activePage, setActivePage)
-
-        Box(
+    Box {
+        BackgroundImage()
+        Column(
             modifier = Modifier
+                .fillMaxSize()
         )
         {
-            NavHost(
-                navController = navController,
-                startDestination = "home"
-            ) {
-                composable(route = "VS") {
-                    VsPage(displayedTasks, taskSwipped)
+
+            NavBar(navController, activePage, setActivePage)
+
+            Box(
+                modifier = Modifier
+            )
+            {
+                NavHost(
+                    navController = navController,
+                    startDestination = "home"
+                ) {
+                    composable(route = "VS") {
+                        VsPage(displayedTasks, taskSwipped)
+                    }
+                    composable(route = "Home") {
+                        HomePage(incompleteTasks, addTask, completeTask)
+                    }
+                    composable(route = "Complete") {
+                        CompletedPage(completedTasks)
+                    }
                 }
-                composable(route = "Home") {
-                    HomePage(incompleteTasks, addTask, completeTask)
-                }
-                composable(route = "Complete") {
-                    CompletedPage(completedTasks)
-                }
+
             }
 
         }
-
     }
 }
