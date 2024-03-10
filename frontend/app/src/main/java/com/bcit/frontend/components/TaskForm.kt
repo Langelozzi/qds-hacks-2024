@@ -3,7 +3,6 @@ package com.bcit.frontend.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -29,7 +28,6 @@ fun TextFieldWithIcons(
         placeholder = { Text(formField.displayName) },
         leadingIcon = { Icon(formField.icon(), contentDescription = "${formField.displayName} icon") },
         trailingIcon = { Icon(Icons.Filled.Info, contentDescription = "Info for ${formField.displayName}") },
-        modifier = modifier.fillMaxWidth() // Apply the modifier to fill max width
-
+        modifier = modifier.fillMaxWidth()
     )
 }

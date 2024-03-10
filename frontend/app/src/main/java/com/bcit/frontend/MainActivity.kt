@@ -10,8 +10,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import com.bcit.frontend.components.BottomRightDrawerComponent
+import com.bcit.frontend.components.BottomUpDrawerComponent
 import com.bcit.frontend.components.DragAnchors
-import com.bcit.frontend.components.DrawerComponent
 import com.bcit.frontend.components.SwipeableCard
 import com.bcit.frontend.components.TextFieldWithIcons
 import com.bcit.frontend.pages.FormPage
@@ -25,7 +26,9 @@ class MainActivity : ComponentActivity() {
 //            VsPage()
 //            TextFieldWithIcons()
 //            FormPage()
-        DrawerComponent(taskPageContent = { FormPage() })
+//        DrawerComponent(taskPageContent = { FormPage() })
+//            BottomRightDrawerComponent(taskPageContent = { FormPage() })
+//    BottomUpDrawerComponent(taskPageContent = { FormPage() })
 
         }
     }

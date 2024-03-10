@@ -23,16 +23,15 @@ fun FormPage() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         FormFieldsEnum.entries.forEach { formField ->
-            // Pass the Modifier.fillMaxWidth() to make each TextFieldWithIcons fill the full width
             TextFieldWithIcons(formField = formField, modifier = Modifier.fillMaxWidth())
-            Spacer(modifier = Modifier.height(8.dp)) // Add space between each TextFieldWithIcons for better spacing
+            Spacer(modifier = Modifier.height(8.dp))
         }
 
         Spacer(modifier = Modifier.weight(1f))
 
         Button(
             onClick = {
-                // Implement form submission logic here
+
             },
             modifier = Modifier.align(Alignment.CenterHorizontally) // Center the button within its parent Column
         ) {
