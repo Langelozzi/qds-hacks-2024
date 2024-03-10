@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -18,27 +19,38 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.bcit.frontend.components.DragAnchors
 import com.bcit.frontend.components.TaskCard
+import com.bcit.frontend.dataClasses.Task
+import com.bcit.frontend.dataClasses.TaskType
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun VsPage() {
+fun VsPage(tasks : List<Task>, userChoice : (task: Task) -> Unit) {
     // Variables
     val density = LocalDensity.current
-
-    // States
     @OptIn(ExperimentalFoundationApi::class)
-    val draggableCardState = remember {
-        AnchoredDraggableState(
+    val draggableCardStates = remember {
+        mutableListOf(
+            AnchoredDraggableState(
             initialValue = DragAnchors.OnScreen,
             positionalThreshold = { distance: Float -> distance * 0.8f },
             velocityThreshold = { with(density) { 100.dp.toPx() } },
             animationSpec = tween()
-        )
+        ),
+            AnchoredDraggableState(
+                initialValue = DragAnchors.OnScreen,
+                positionalThreshold = { distance: Float -> distance * 0.8f },
+                velocityThreshold = { with(density) { 100.dp.toPx() } },
+                animationSpec = tween()
+            ))
     }
+
+
     var buttonClicked by remember { mutableStateOf(false) }
     LaunchedEffect(buttonClicked) {
         if (buttonClicked) {
-            draggableCardState.animateTo(DragAnchors.OnScreen)
+            for (draggedState in draggableCardStates) {
+                draggedState.animateTo(DragAnchors.OnScreen)
+            }
             buttonClicked = false
         }
     }
@@ -48,8 +60,11 @@ fun VsPage() {
     }
 
     Column {
-        TaskCard(draggableCardState)
-        Button(onClick = onButtonClick) {
+        tasks.mapIndexed { index, item ->
+            TaskCard(draggableCardStates[index], item, userChoice)
+        }
+
+    Button(onClick = onButtonClick) {
             Text("Bring back to center")
         }
     }
