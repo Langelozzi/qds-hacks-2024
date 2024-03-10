@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.bcit.frontend.classes.TaskViewModel
 import com.bcit.frontend.components.NavBar
 import com.bcit.frontend.dataClasses.Task
 import com.bcit.frontend.dataClasses.TaskType
@@ -25,7 +26,7 @@ import com.bcit.frontend.pages.VsPage
 @Composable
 fun App() {
     val navController = rememberNavController()
-
+    val taskViewModel = remember { TaskViewModel() }
     var activePage by remember { mutableStateOf(NavPages.Home) }
     LaunchedEffect(activePage) {
         when (activePage) {
@@ -39,12 +40,7 @@ fun App() {
         activePage = page
     }
 
-    val completedTasks = remember {
-        mutableStateListOf(
-            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2),
-            Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2),
-        )
-    }
+
 
     val incompleteTasks = remember {
         mutableStateListOf(
@@ -58,15 +54,9 @@ fun App() {
         Pair(incompleteTasks[0], incompleteTasks[1])
     }
 
-    val removeTask: (Task) -> Unit = { task ->
-        // this function should remove the passed task from the list
-    }
-    val taskSwipped: (Task) -> Unit = { task ->
-        // you should be able to see when this is swiped it gets logged
-    }
+
     val addTask: (Task) -> Unit = { task ->
         incompleteTasks.add(task)
-        // you should be able to see when this is swiped it gets logged
     }
 
     Column {
@@ -80,7 +70,7 @@ fun App() {
                 startDestination = "home"
             ) {
                 composable(route = "VS") {
-                    VsPage(displayedTasks, taskSwipped)
+                    VsPage(taskViewModel)
                 }
                 composable(route = "Home") {
                     HomePage(addTask)

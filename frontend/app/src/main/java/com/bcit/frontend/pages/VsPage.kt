@@ -16,15 +16,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
+import com.bcit.frontend.classes.TaskViewModel
 import com.bcit.frontend.components.DragAnchors
 import com.bcit.frontend.components.TaskCard
-import com.bcit.frontend.dataClasses.Task
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun VsPage(tasks : Pair<Task, Task>, taskSwipped : (task: Task) -> Unit) {
+fun VsPage(taskViewModel: TaskViewModel) {
     // Variables
     val density = LocalDensity.current
+    val currentPair by remember(taskViewModel.displayedTasks) {
+        mutableStateOf(taskViewModel.displayedTasks[0])
+    }
     @OptIn(ExperimentalFoundationApi::class)
     val draggableCardStates = remember {
         mutableListOf(
@@ -54,12 +57,17 @@ fun VsPage(tasks : Pair<Task, Task>, taskSwipped : (task: Task) -> Unit) {
     }
 
     val onButtonClick = {
-        buttonClicked = true
+        buttonClicked = false
     }
 
+
     Column {
-            TaskCard(draggableCardStates[0], tasks.first, taskSwipped)
-            TaskCard(draggableCardStates[1], tasks.second, taskSwipped)
+            TaskCard(draggableCardStates[0], onClick = {buttonClicked = true},
+                task = currentPair?.first!!
+            )
+            TaskCard(draggableCardStates[1], onClick = {buttonClicked = true},
+                task = currentPair?.second!!
+            )
         }
 
     Button(onClick = onButtonClick) {
