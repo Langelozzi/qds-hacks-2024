@@ -12,13 +12,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.bcit.frontend.components.BottomUpDrawerComponent
+import com.bcit.frontend.dataClasses.Task
 
 @Composable
-fun HomePage() {
+fun HomePage(addTask: (task: Task) -> Unit ) {
     var drawerIsActive by remember { mutableStateOf(false) }
 
     BottomUpDrawerComponent(
-        taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }) },
+        taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }, addTask) },
         showBottomSheet = drawerIsActive,
         onShowBottomSheetChange = { drawerIsActive = it },
         onDrawerStateChange = { isActive -> drawerIsActive = isActive }

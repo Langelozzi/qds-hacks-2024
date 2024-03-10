@@ -56,7 +56,7 @@ fun App() {
         // you should be able to see when this is swiped it gets logged
     }
     val addTask: (Task) -> Unit = { task ->
-        Log.d("Test" , task.course)
+        tasks.add(task)
         // you should be able to see when this is swiped it gets logged
     }
 
@@ -75,7 +75,7 @@ fun App() {
                     VsPage(tasks, taskSwipped)
                 }
                 composable(route = "Home") {
-                    HomePage()
+                    HomePage(addTask)
                 }
                 composable(route = "Complete") {
                     CompletedPage()
