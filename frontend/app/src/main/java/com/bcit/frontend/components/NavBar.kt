@@ -44,12 +44,6 @@ fun NavBar(
 
                 ) {
                 NavButton(
-                    text = "VS.",
-                    isActive = activePage == NavPages.VS,
-                    onClick = {
-                        setActivePage(NavPages.VS)
-                    })
-                NavButton(
                     icon = {
                         Icon(
                             Icons.Rounded.Home,
@@ -59,6 +53,12 @@ fun NavBar(
                     isActive = activePage == NavPages.Home,
                     onClick = {
                         setActivePage(NavPages.Home)
+                    })
+                NavButton(
+                    text = "VS.",
+                    isActive = activePage == NavPages.VS,
+                    onClick = {
+                        setActivePage(NavPages.VS)
                     })
                 NavButton(
                     icon = {
