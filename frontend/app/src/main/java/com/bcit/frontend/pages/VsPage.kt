@@ -22,7 +22,7 @@ import com.bcit.frontend.dataClasses.Task
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun VsPage(tasks : List<Task>, taskSwipped : (task: Task) -> Unit) {
+fun VsPage(tasks : Pair<Task, Task>, taskSwipped : (task: Task) -> Unit) {
     // Variables
     val density = LocalDensity.current
     @OptIn(ExperimentalFoundationApi::class)
@@ -58,12 +58,12 @@ fun VsPage(tasks : List<Task>, taskSwipped : (task: Task) -> Unit) {
     }
 
     Column {
-        tasks.mapIndexed { index, item ->
-            TaskCard(draggableCardStates[index], item, taskSwipped)
+            TaskCard(draggableCardStates[0], tasks.first, taskSwipped)
+            TaskCard(draggableCardStates[1], tasks.second, taskSwipped)
         }
 
     Button(onClick = onButtonClick) {
             Text("Bring back to center")
         }
-    }
+
 }
