@@ -1,22 +1,16 @@
 package com.bcit.frontend.components
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun NavButton(
@@ -26,12 +20,15 @@ fun NavButton(
     onClick: () -> Unit = {},
     content: @Composable () -> Unit = {}
 ) {
-    val buttonColor = if (isActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface
-    val circleColor = if (isActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.background
+    val buttonColor =
+        if (isActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface
+    val circleColor =
+        if (isActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.background
 
     IconButton(
         modifier = Modifier
-            .background(buttonColor, shape = CircleShape),
+            .background(buttonColor, shape = CircleShape)
+            .size(30.dp),
         onClick = onClick,
     ) {
         Box(
@@ -39,7 +36,7 @@ fun NavButton(
                 .background(circleColor, shape = CircleShape)
         ) {
             if (text.isNotEmpty()) {
-                Text(text)
+                Text(text, fontSize = 12.sp)
             } else {
                 icon()
             }
