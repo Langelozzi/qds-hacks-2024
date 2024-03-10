@@ -1,10 +1,12 @@
 package com.bcit.frontend
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -13,6 +15,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.bcit.frontend.components.NavBar
+import com.bcit.frontend.dataClasses.Task
+import com.bcit.frontend.dataClasses.TaskType
 import com.bcit.frontend.enums.NavPages
 import com.bcit.frontend.pages.CompletedPage
 import com.bcit.frontend.pages.HomePage
@@ -35,6 +39,26 @@ fun App() {
         activePage = page
     }
 
+
+    val tasks = remember {
+        mutableStateListOf(
+            Task("Lab 6", "Stats", TaskType.LAB, 0.08),
+            Task("Lab 7", "Maths", TaskType.LAB, 0.10)
+        )
+    }
+    val removeTask: (Task) -> Unit = {task ->
+        // this function should remove the passed task from the list
+    }
+    val taskSwipped: (Task) -> Unit = { task ->
+        Log.d("Test" , task.course)
+        // you should be able to see when this is swiped it gets logged
+    }
+    val addTask: (Task) -> Unit = { task ->
+        Log.d("Test" , task.course)
+        // you should be able to see when this is swiped it gets logged
+    }
+
+
     Column {
         NavBar(navController, activePage, setActivePage)
         Box(
@@ -46,7 +70,7 @@ fun App() {
                 startDestination = "home"
             ) {
                 composable(route = "VS") {
-                    VsPage()
+                    VsPage(tasks, taskSwipped)
                 }
                 composable(route = "Home") {
                     HomePage()

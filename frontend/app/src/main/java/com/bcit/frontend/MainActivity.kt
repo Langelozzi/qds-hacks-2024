@@ -1,6 +1,7 @@
 package com.bcit.frontend
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -27,18 +28,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-@Composable
-fun Main() {
-    val tasks = remember {
-        mutableStateListOf(
-            Task("Lab 6", "Stats", TaskType.LAB, 0.08),
-            Task("Lab 7", "Maths", TaskType.LAB, 0.10)
-        )
-    }
-    val addTask: (Task) -> Unit = { task ->
-        Log.d("Test" , task.course)
-        // you should be able to see when this is swipped it gets logged
-    }
-    VsPage(tasks, addTask)
-}
-
