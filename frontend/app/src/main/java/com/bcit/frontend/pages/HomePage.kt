@@ -26,22 +26,22 @@ fun HomePage(
     completeTask: (Task) -> Unit
 ) {
     var drawerIsActive by remember { mutableStateOf(false) }
-    BottomUpDrawerComponent(
-        taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }, addTask) },
-        showBottomSheet = drawerIsActive,
-        onShowBottomSheetChange = { drawerIsActive = it },
-        onDrawerStateChange = { isActive -> drawerIsActive = isActive }
-    )
+
     AnimatedVisibility(visible = !drawerIsActive) {
-        BackgroundImage()
 
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.TopStart
         ) {
             Column{
-                Text(text = "Welcome to the HomePage!")
                 TaskList(tasks = tasks, completeTask)
+                BottomUpDrawerComponent(
+                    taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }, addTask) },
+                    showBottomSheet = drawerIsActive,
+                    onShowBottomSheetChange = { drawerIsActive = it },
+                    onDrawerStateChange = { isActive -> drawerIsActive = isActive },
+                )
+
             }
 
         }

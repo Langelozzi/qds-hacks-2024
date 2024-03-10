@@ -68,14 +68,12 @@ fun App() {
     }
 
     val removeTask: (Task) -> Unit = { task ->
-        // this function should remove the passed task from the list
     }
     val taskSwipped: (Task) -> Unit = { task ->
         displayedTasksIndexes[0] += 1
         displayedTasksIndexes[1] += 1
         displayedTasks[0] = incompleteTasks[displayedTasksIndexes[0]]
         displayedTasks[1] = incompleteTasks[displayedTasksIndexes[1]]
-        // you should be able to see when this is swiped it gets logged
     }
     val addTask: (Task) -> Unit = { task ->
         incompleteTasks.add(task)

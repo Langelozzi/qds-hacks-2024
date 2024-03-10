@@ -3,6 +3,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
@@ -21,6 +22,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
+import com.bcit.frontend.pages.BackgroundImage
 
 
 @Composable
@@ -42,7 +45,9 @@ fun BottomRightDrawerComponent(
                     }
                 }
             },
-            modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp), // Adjust padding to move the button away from the corners
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(16.dp), // Adjust padding to move the button away from the corners
             content = {
                 Icon(Icons.Filled.Edit, contentDescription = "Edit")
             }
@@ -68,7 +73,7 @@ fun BottomUpDrawerComponent(
     taskPageContent: @Composable () -> Unit,
     showBottomSheet: Boolean,
     onShowBottomSheetChange: (Boolean) -> Unit,
-    onDrawerStateChange: (Boolean) -> Unit
+    onDrawerStateChange: (Boolean) -> Unit,
 ) {
     val coroutineScope = rememberCoroutineScope()
     val offset = animateDpAsState(targetValue = if (showBottomSheet) 0.dp else 500.dp)
