@@ -58,7 +58,7 @@ fun VsPage(tasks: SnapshotStateList<Task>, taskSwipped: (task: Task) -> Unit) {
         buttonClicked = true
         taskSwipped(tasks[0])
     }
-
+    BackgroundImage()
     Column {
             TaskCard(draggableCardStates[0], tasks[0], taskSwipped)
             TaskCard(draggableCardStates[1], tasks[1], taskSwipped)

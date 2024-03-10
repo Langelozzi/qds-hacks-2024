@@ -1,5 +1,6 @@
 package com.bcit.frontend
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,6 +13,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -19,6 +21,7 @@ import com.bcit.frontend.components.NavBar
 import com.bcit.frontend.dataClasses.Task
 import com.bcit.frontend.dataClasses.TaskType
 import com.bcit.frontend.enums.NavPages
+import com.bcit.frontend.pages.BackgroundImage
 import com.bcit.frontend.pages.CompletedPage
 import com.bcit.frontend.pages.HomePage
 import com.bcit.frontend.pages.VsPage
@@ -84,11 +87,18 @@ fun App() {
         completedTasks.add(task)
     }
 
-    Column {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+    )
+    {
+
         NavBar(navController, activePage, setActivePage)
+
         Box(
             modifier = Modifier
-        ) {
+        )
+        {
             NavHost(
                 navController = navController,
                 startDestination = "home"
@@ -103,6 +113,8 @@ fun App() {
                     CompletedPage(completedTasks)
                 }
             }
+
         }
+
     }
 }

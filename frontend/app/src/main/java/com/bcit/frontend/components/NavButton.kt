@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.bcit.frontend.pages.BackgroundImage
 
 @Composable
 fun NavButton(
@@ -24,7 +25,6 @@ fun NavButton(
         if (isActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface
     val circleColor =
         if (isActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.background
-
     IconButton(
         modifier = Modifier
             .background(buttonColor, shape = CircleShape)

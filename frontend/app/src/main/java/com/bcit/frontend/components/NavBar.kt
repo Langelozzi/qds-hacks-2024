@@ -31,7 +31,6 @@ fun NavBar(
             .padding(10.dp),
         horizontalArrangement = Arrangement.Center
     ) {
-        // rounded border
         Box(
             modifier = Modifier
                 .shadow(12.dp, shape = RoundedCornerShape(30.dp))
@@ -41,7 +40,8 @@ fun NavBar(
                 modifier = Modifier
                     .background(Color.White, shape = RoundedCornerShape(30.dp))
                     .padding(1.dp),
-                horizontalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.Center,
+
             ) {
                 NavButton(
                     text = "VS.",
@@ -68,6 +68,8 @@ fun NavBar(
                     onClick = {
                         setActivePage(NavPages.Complete)
                     })
+
+
             }
         }
     }

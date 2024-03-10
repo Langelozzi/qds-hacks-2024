@@ -1,6 +1,7 @@
 package com.bcit.frontend.pages
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,6 +14,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import com.bcit.frontend.components.BottomUpDrawerComponent
 import com.bcit.frontend.components.TaskList
 import com.bcit.frontend.dataClasses.Task
@@ -24,15 +26,15 @@ fun HomePage(
     completeTask: (Task) -> Unit
 ) {
     var drawerIsActive by remember { mutableStateOf(false) }
-
     BottomUpDrawerComponent(
         taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }, addTask) },
         showBottomSheet = drawerIsActive,
         onShowBottomSheetChange = { drawerIsActive = it },
         onDrawerStateChange = { isActive -> drawerIsActive = isActive }
     )
-
     AnimatedVisibility(visible = !drawerIsActive) {
+        BackgroundImage()
+
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.TopStart
@@ -41,6 +43,7 @@ fun HomePage(
                 Text(text = "Welcome to the HomePage!")
                 TaskList(tasks = tasks, completeTask)
             }
+
         }
     }
 
