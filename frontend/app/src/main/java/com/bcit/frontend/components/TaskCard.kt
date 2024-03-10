@@ -66,7 +66,7 @@ fun TaskCard(
         )
         {
 
-                Text(text = task.title,
+                Text(text = "${task.course}: ${task.title}",
                     style = MaterialTheme.typography.bodyLarge
                         .copy(
                         fontFamily = customFontFamily,
@@ -89,9 +89,17 @@ fun TaskCard(
                     )
 
                 }
-
+//                    Text(
+//                        text = "${task.course}: ${task.}",
+//                        style = MaterialTheme.typography.bodyLarge                        .copy(
+//                            fontFamily = customFontFamily,
+//                            fontSize = 25.sp,
+//                            color = Color(0xFF1D0101)
+//                        ),
+//                        modifier = Modifier.padding(vertical = 4.dp)
+//                    )
                     Text(
-                        text = task.course,
+                        text = "Due: ${task.dueDate}",
                         style = MaterialTheme.typography.bodyLarge                        .copy(
                             fontFamily = customFontFamily,
                             fontSize = 25.sp,
@@ -99,6 +107,7 @@ fun TaskCard(
                         ),
                         modifier = Modifier.padding(vertical = 4.dp)
                     )
+
                     Text(
                         text = task.type.toString(),
                         style = MaterialTheme.typography.bodyLarge                        .copy(
