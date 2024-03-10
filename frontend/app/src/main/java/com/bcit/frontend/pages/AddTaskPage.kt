@@ -9,6 +9,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,12 +25,16 @@ import com.bcit.frontend.enums.FormFieldsEnum
 
 
 @Composable
-fun FormPage(onSubmit: () -> Unit) {
-    var courseName by rememberSaveable { mutableStateOf("") }
-    var taskType by rememberSaveable { mutableStateOf(TaskType.OTHER) }
-    var taskWeight by rememberSaveable { mutableStateOf("") }
-    var dueDate by rememberSaveable { mutableStateOf("") }
+fun FormPage(onSubmit: (Task) -> Unit) {
     val formFieldValues = remember { mutableStateMapOf<FormFieldsEnum, String>() }
+    FormFieldsEnum.entries.forEach { formField ->
+        if (!formFieldValues.containsKey(formField)) {
+            formFieldValues[formField] = ""
+        }
+    }
+
+    var taskType by rememberSaveable { mutableStateOf(TaskType.OTHER) }
+    var difficulty by rememberSaveable { mutableIntStateOf(1) } // Default difficulty
 
     Column(
         modifier = Modifier
@@ -43,25 +48,30 @@ fun FormPage(onSubmit: () -> Unit) {
                 text = formFieldValues[formField] ?: "",
                 onTextChange = { newValue ->
                     formFieldValues[formField] = newValue
-                }
+                },
+                modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(8.dp))
-
         }
 
         Spacer(modifier = Modifier.weight(1f))
 
         Button(
             onClick = {
-                val weight = taskWeight.toDoubleOrNull() ?: 0.0
+                val title = formFieldValues[FormFieldsEnum.Title] ?: ""
+                val courseName = formFieldValues[FormFieldsEnum.CourseName] ?: ""
+                val taskWeight = formFieldValues[FormFieldsEnum.Weight]?.toDoubleOrNull() ?: 0.0
+                val dueDate = formFieldValues[FormFieldsEnum.DueDate] ?: ""
+
                 val task = Task(
-                    title = "Static Title", // Placeholder or adjust as needed
+                    title = title,
                     course = courseName,
                     type = taskType,
-                    worth = weight,
+                    weight = taskWeight,
+                    dueDate = dueDate,
+                    difficulty = difficulty
                 )
-                onSubmit()
-                // TODO: Handle the Task object (e.g., state update, submission)
+                onSubmit(task)
             },
             modifier = Modifier.align(Alignment.CenterHorizontally),
         ) {
@@ -69,3 +79,5 @@ fun FormPage(onSubmit: () -> Unit) {
         }
     }
 }
+
+

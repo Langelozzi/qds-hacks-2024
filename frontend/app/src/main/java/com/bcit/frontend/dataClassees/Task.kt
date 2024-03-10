@@ -7,6 +7,8 @@ data class Task(
     val title: String,
     val course: String,
     val type: TaskType,
-    val worth: Double
+    val weight: Double,
+    val dueDate: String,
+    val difficulty: Int,
 )
 

@@ -15,20 +15,19 @@ import com.bcit.frontend.components.BottomUpDrawerComponent
 
 @Composable
 fun HomePage() {
-    var drawerIsActive by remember { mutableStateOf(false) } // This state now directly controls the bottom drawer's visibility
+    var drawerIsActive by remember { mutableStateOf(false) }
 
     BottomUpDrawerComponent(
-        taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }) }, // Pass onSubmit to close the drawer
-        showBottomSheet = drawerIsActive, // Pass the state controlling visibility
-        onShowBottomSheetChange = { drawerIsActive = it }, // Function to change visibility
-        onDrawerStateChange = { isActive -> drawerIsActive = isActive } // This might be optional now, depending on your needs
+        taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }) },
+        showBottomSheet = drawerIsActive,
+        onShowBottomSheetChange = { drawerIsActive = it },
+        onDrawerStateChange = { isActive -> drawerIsActive = isActive }
     )
     AnimatedVisibility(visible = !drawerIsActive) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            // Your main content that should be hidden/shown when the drawer is toggled
             Text(text = "Welcome to the HomePage!")
         }
     }
