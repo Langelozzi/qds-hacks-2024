@@ -42,8 +42,10 @@ fun App() {
 
     val tasks = remember {
         mutableStateListOf(
-            Task("Lab 6", "Stats", TaskType.LAB, 0.08),
-            Task("Lab 7", "Maths", TaskType.LAB, 0.10)
+            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10",2),
+            Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10",2),
+//            Task("Lab 1", "Maths", TaskType.LAB, 0.05, "2022-10-10",2),
+//            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10",2),
         )
     }
     val removeTask: (Task) -> Unit = {task ->

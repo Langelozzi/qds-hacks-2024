@@ -67,7 +67,7 @@ fun TaskCard(
                         modifier = Modifier.padding(vertical = 4.dp)
                     )
                     Text(
-                        text = "Worth: ${task.worth}%",
+                        text = "Worth: ${task.weight}%",
                         style = MaterialTheme.typography.bodyLarge,
                         modifier = Modifier.padding(vertical = 4.dp)
                     )
