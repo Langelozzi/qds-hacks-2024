@@ -26,9 +26,6 @@ import com.bcit.frontend.pages.VsPage
 fun App() {
     val navController = rememberNavController()
 
-    val displayedTasks = remember {
-        Pair(incompleteTasks[0], incompleteTasks[1])
-    }
     var activePage by remember { mutableStateOf(NavPages.Home) }
     LaunchedEffect(activePage) {
         when (activePage) {
@@ -47,6 +44,9 @@ fun App() {
             Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2),
             Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2),
         )
+    }
+    val displayedTasks = remember {
+        Pair(incompleteTasks[0], incompleteTasks[1])
     }
 
 
