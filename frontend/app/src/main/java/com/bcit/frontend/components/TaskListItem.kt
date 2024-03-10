@@ -34,7 +34,7 @@ fun TaskListItem(
                 .padding(15.dp)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.stats2),
+                painter = painterResource(id = task.imageId),
                 contentDescription = task.title,
                 modifier = Modifier
                     .height(50.dp)
