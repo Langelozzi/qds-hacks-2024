@@ -32,6 +32,12 @@ To run our Android app, follow these steps:
    - Run the app on an Android device.
    - Enable developer settings on the device.
    - Connect the device to the computer.
+
+# Technologies Used
+- Kotlin
+- Jetpack Compose
+- Python
+- Flask
    
 # Team Members
 - Ankit Ahlwat
