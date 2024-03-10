@@ -26,6 +26,9 @@ import com.bcit.frontend.pages.VsPage
 fun App() {
     val navController = rememberNavController()
 
+    val displayedTasks = remember {
+        Pair(incompleteTasks[0], incompleteTasks[1])
+    }
     var activePage by remember { mutableStateOf(NavPages.Home) }
     LaunchedEffect(activePage) {
         when (activePage) {
@@ -39,24 +42,30 @@ fun App() {
         activePage = page
     }
 
-
-    val tasks = remember {
+    val completedTasks = remember {
         mutableStateListOf(
-            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10",2),
-            Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10",2),
-//            Task("Lab 1", "Maths", TaskType.LAB, 0.05, "2022-10-10",2),
-//            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10",2),
+            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2),
+            Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2),
         )
     }
-    val removeTask: (Task) -> Unit = {task ->
+
+
+    val incompleteTasks = remember {
+        mutableStateListOf(
+            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2),
+            Task("quiz 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2),
+            Task("midterm 1", "Maths", TaskType.LAB, 0.05, "2022-10-10",2),
+            Task("assignement 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10",2),
+        )
+    }
+    val removeTask: (Task) -> Unit = { task ->
         // this function should remove the passed task from the list
     }
     val taskSwipped: (Task) -> Unit = { task ->
-        Log.d("Test" , task.course)
         // you should be able to see when this is swiped it gets logged
     }
     val addTask: (Task) -> Unit = { task ->
-        tasks.add(task)
+        incompleteTasks.add(task)
         // you should be able to see when this is swiped it gets logged
     }
 
@@ -72,7 +81,7 @@ fun App() {
                 startDestination = "home"
             ) {
                 composable(route = "VS") {
-                    VsPage(tasks, taskSwipped)
+                    VsPage(displayedTasks, taskSwipped)
                 }
                 composable(route = "Home") {
                     HomePage(addTask)
