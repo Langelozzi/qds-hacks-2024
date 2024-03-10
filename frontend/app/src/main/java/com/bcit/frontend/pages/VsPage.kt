@@ -1,11 +1,19 @@
 package com.bcit.frontend.pages
 
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.AnchoredDraggableState
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.gestures.animateTo
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -21,12 +29,17 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.bcit.frontend.R
 import com.bcit.frontend.components.DragAnchors
 import com.bcit.frontend.components.TaskCard
 import com.bcit.frontend.dataClasses.Task
@@ -158,6 +171,13 @@ fun VsPage(
     ) {
         if (!sortingDone && nextTasks.size > 1) {
             TaskCard(draggableCardStates[0], nextTasks[0], onTaskSwipe)
+            Image(
+                modifier = Modifier
+                    .size(110.dp)
+                    .fillMaxWidth(),
+                painter = painterResource(id = R.drawable.vsdarktransparent),
+                contentDescription = "test",
+            )
             TaskCard(draggableCardStates[1], nextTasks[1], onTaskSwipe)
         }
         if (sortingDone) {

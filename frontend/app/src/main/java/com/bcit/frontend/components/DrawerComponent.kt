@@ -3,6 +3,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -23,6 +24,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import com.bcit.frontend.R
 import com.bcit.frontend.pages.BackgroundImage
 
 
@@ -97,10 +101,11 @@ fun BottomUpDrawerComponent(
         }
     ) { paddingValues ->
         Box(modifier = Modifier
-            .fillMaxSize()
-            .padding(paddingValues)
-            .background(Color.Black)) {
 
+            .fillMaxSize()
+            .padding(paddingValues),
+            ) {
+            BackgroundImage()
             AnimatedVisibility(
                 visible = showBottomSheet,
                 enter = slideInVertically(initialOffsetY = { it }),
