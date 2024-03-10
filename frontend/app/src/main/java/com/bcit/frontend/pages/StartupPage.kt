@@ -38,7 +38,7 @@ fun StartUpPage(setActivePage:(NavPages) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(0.dp, 0.dp, 0.dp, 290.dp)
+            .padding(0.dp, 0.dp, 0.dp, 288.dp)
             .clickable{
                 Log.d("startup", "startup clicked")
                 setActivePage(NavPages.VS)},
@@ -50,7 +50,7 @@ fun StartUpPage(setActivePage:(NavPages) -> Unit) {
             style = MaterialTheme.typography.bodyLarge
                 .copy(
                     fontFamily = com.bcit.frontend.components.customFontFamily,
-                    fontSize = 30.sp,
+                    fontSize = 38.sp,
                     color = Color(0xFFFFFFFF)
                 )
         )
