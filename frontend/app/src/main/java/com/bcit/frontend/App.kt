@@ -75,7 +75,7 @@ fun App() {
                     VsPage(tasks, taskSwipped)
                 }
                 composable(route = "Home") {
-                    HomePage(addTask)
+                    HomePage(tasks, addTask)
                 }
                 composable(route = "Complete") {
                     CompletedPage()

@@ -20,8 +20,6 @@ import com.bcit.frontend.dataClasses.Task
 fun HomePage(tasks: SnapshotStateList<Task>, addTask: (task: Task) -> Unit) {
     var drawerIsActive by remember { mutableStateOf(false) }
 
-    TaskList(tasks = tasks)
-
     BottomUpDrawerComponent(
         taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }, addTask) },
         showBottomSheet = drawerIsActive,
@@ -36,4 +34,6 @@ fun HomePage(tasks: SnapshotStateList<Task>, addTask: (task: Task) -> Unit) {
             Text(text = "Welcome to the HomePage!")
         }
     }
+
+    TaskList(tasks = tasks)
 }

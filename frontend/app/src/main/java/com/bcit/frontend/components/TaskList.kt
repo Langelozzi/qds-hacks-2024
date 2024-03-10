@@ -49,7 +49,8 @@ fun TaskList(
 
     LazyColumn {
         items(statefulTasks.size) {
-//            TaskCard(statefulTasks[it].dragState)
+            val t = statefulTasks[it]
+            TaskCard(t.dragState, t.task, {})
         }
     }
 }
