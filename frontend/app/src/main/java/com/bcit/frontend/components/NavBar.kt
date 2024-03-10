@@ -33,16 +33,16 @@ fun NavBar(
     ) {
         Box(
             modifier = Modifier
-                .shadow(12.dp, shape = RoundedCornerShape(30.dp))
+                .shadow(60.dp, shape = RoundedCornerShape(30.dp))
                 .padding(2.dp) // Adjust padding as needed
         ) {
             Row(
                 modifier = Modifier
-                    .background(Color.White, shape = RoundedCornerShape(30.dp))
+                    .background(Color(0x75C7C6C6), shape = RoundedCornerShape(30.dp))
                     .padding(1.dp),
                 horizontalArrangement = Arrangement.Center,
 
-            ) {
+                ) {
                 NavButton(
                     text = "VS.",
                     isActive = activePage == NavPages.VS,

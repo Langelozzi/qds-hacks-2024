@@ -9,9 +9,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.bcit.frontend.pages.BackgroundImage
 
 @Composable
 fun NavButton(
@@ -22,9 +22,9 @@ fun NavButton(
     content: @Composable () -> Unit = {}
 ) {
     val buttonColor =
-        if (isActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface
+        if (isActive) MaterialTheme.colorScheme.primary else Color.Transparent
     val circleColor =
-        if (isActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.background
+        if (isActive) MaterialTheme.colorScheme.primary else Color.Transparent
     IconButton(
         modifier = Modifier
             .background(buttonColor, shape = CircleShape)
