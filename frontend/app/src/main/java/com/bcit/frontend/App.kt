@@ -142,11 +142,17 @@ fun App() {
     }
 
     val completeTask: (Task) -> Unit = { task ->
-        unsortedTasks.remove(task)
+        sortedTasks.remove(task)
         completedTasks.add(task)
     }
 
-    LaunchedEffect(sortedTasks.size) {
+    val deleteCompletedTask: (Task) -> Unit = {task ->
+        completedTasks.remove(task)
+    }
+
+    val onReSortTasks: () -> Unit = {
+        unsortedTasks.addAll(sortedTasks)
+        sortedTasks.clear()
     }
 
 
@@ -169,13 +175,13 @@ fun App() {
                     startDestination = "home"
                 ) {
                     composable(route = "VS") {
-                        VsPage(unsortedTasks.toList(), addSortedTasks)
+                        VsPage(setActivePage, unsortedTasks, addSortedTasks, onReSortTasks)
                     }
                     composable(route = "Home") {
-                        HomePage(sortedTasks, addNewTask, completeTask)
+                        HomePage(setActivePage, sortedTasks, addNewTask, completeTask)
                     }
                     composable(route = "Complete") {
-                        CompletedPage(completedTasks)
+                        CompletedPage(completedTasks, deleteCompletedTask)
                     }
                 }
 
