@@ -73,7 +73,7 @@ fun App() {
                 0.05,
                 LocalDate.parse("2022-10-10"),
                 2,
-                R.drawable.stats2
+                R.drawable.statslab2
             ),
             Task(
                 "quiz 1",
