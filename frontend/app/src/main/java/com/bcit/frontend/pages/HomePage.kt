@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -32,15 +31,20 @@ fun HomePage(
         onShowBottomSheetChange = { drawerIsActive = it },
         onDrawerStateChange = { isActive -> drawerIsActive = isActive }
     )
-    AnimatedVisibility(visible = !drawerIsActive) {
-        BackgroundImage()
-
+    AnimatedVisibility(
+        visible = !drawerIsActive,
+        modifier = Modifier.background(color = Color.Transparent)
+    ) {
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = Color.Transparent),
             contentAlignment = Alignment.TopStart
         ) {
-            Column{
-                Text(text = "Welcome to the HomePage!")
+            Column(
+                modifier = Modifier
+                    .background(color = Color.Transparent)
+            ) {
                 TaskList(tasks = tasks, completeTask)
             }
 

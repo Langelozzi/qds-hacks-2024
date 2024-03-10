@@ -22,6 +22,7 @@ import com.bcit.frontend.pages.BackgroundImage
 import com.bcit.frontend.pages.CompletedPage
 import com.bcit.frontend.pages.HomePage
 import com.bcit.frontend.pages.VsPage
+import java.time.LocalDate
 
 @Composable
 fun App() {
@@ -42,19 +43,83 @@ fun App() {
 
     val completedTasks = remember {
         mutableStateListOf(
-            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.statslab2),
-            Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.algolab3),
+            Task(
+                "Lab 1",
+                "CPSC",
+                TaskType.LAB,
+                0.05,
+                LocalDate.parse("2022-10-10"),
+                2,
+                R.drawable.statslab2
+            ),
+            Task(
+                "Lab 1",
+                "Stats",
+                TaskType.LAB,
+                0.05,
+                LocalDate.parse("2022-10-10"),
+                2,
+                R.drawable.algolab3
+            ),
         )
     }
 
     val unsortedTasks = remember {
         mutableStateListOf(
-            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.stats2),
-            Task("quiz 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.algolab3),
-            Task("midterm 1", "Maths", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.ooplab2),
-            Task("assignment 1", "AIML", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.ooplab1),
-            Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.statslab2),
-            Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.algolab3),
+            Task(
+                "Lab 1",
+                "CPSC",
+                TaskType.LAB,
+                0.05,
+                LocalDate.parse("2022-10-10"),
+                2,
+                R.drawable.stats2
+            ),
+            Task(
+                "quiz 1",
+                "Stats",
+                TaskType.LAB,
+                0.05,
+                LocalDate.parse("2022-10-10"),
+                2,
+                R.drawable.algolab3
+            ),
+            Task(
+                "midterm 1",
+                "Maths",
+                TaskType.LAB,
+                0.05,
+                LocalDate.parse("2022-10-10"),
+                2,
+                R.drawable.ooplab2
+            ),
+            Task(
+                "assignment 1",
+                "AIML",
+                TaskType.LAB,
+                0.05,
+                LocalDate.parse("2022-10-10"),
+                2,
+                R.drawable.ooplab1
+            ),
+            Task(
+                "Lab 1",
+                "CPSC",
+                TaskType.LAB,
+                0.05,
+                LocalDate.parse("2022-10-10"),
+                2,
+                R.drawable.statslab2
+            ),
+            Task(
+                "Lab 1",
+                "Stats",
+                TaskType.LAB,
+                0.05,
+                LocalDate.parse("2022-10-10"),
+                2,
+                R.drawable.algolab3
+            ),
         )
     }
 
@@ -81,6 +146,9 @@ fun App() {
         completedTasks.add(task)
     }
 
+    LaunchedEffect(sortedTasks.size) {
+    }
+
 
     Box {
         BackgroundImage()
@@ -104,7 +172,7 @@ fun App() {
                         VsPage(unsortedTasks.toList(), addSortedTasks)
                     }
                     composable(route = "Home") {
-                        HomePage(unsortedTasks, addNewTask, completeTask)
+                        HomePage(sortedTasks, addNewTask, completeTask)
                     }
                     composable(route = "Complete") {
                         CompletedPage(completedTasks)
