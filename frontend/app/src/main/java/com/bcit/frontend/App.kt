@@ -99,7 +99,7 @@ fun App() {
                     HomePage(incompleteTasks, addTask, completeTask)
                 }
                 composable(route = "Complete") {
-                    CompletedPage()
+                    CompletedPage(completedTasks)
                 }
             }
         }
