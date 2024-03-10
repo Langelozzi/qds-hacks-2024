@@ -28,7 +28,7 @@ fun NavButton(
     IconButton(
         modifier = Modifier
             .background(buttonColor, shape = CircleShape)
-            .size(30.dp),
+            .size(43.dp),
         onClick = onClick,
     ) {
         Box(
