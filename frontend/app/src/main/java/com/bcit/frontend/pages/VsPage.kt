@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.bcit.frontend.components.DragAnchors
@@ -22,7 +23,7 @@ import com.bcit.frontend.dataClasses.Task
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun VsPage(tasks : List<Task>, taskSwipped : (task: Task) -> Unit) {
+fun VsPage(tasks: SnapshotStateList<Task>, taskSwipped: (task: Task) -> Unit) {
     // Variables
     val density = LocalDensity.current
     @OptIn(ExperimentalFoundationApi::class)
@@ -55,15 +56,16 @@ fun VsPage(tasks : List<Task>, taskSwipped : (task: Task) -> Unit) {
 
     val onButtonClick = {
         buttonClicked = true
+        taskSwipped(tasks[0])
     }
 
     Column {
-        tasks.mapIndexed { index, item ->
-            TaskCard(draggableCardStates[index], item, taskSwipped)
+            TaskCard(draggableCardStates[0], tasks[0], taskSwipped)
+            TaskCard(draggableCardStates[1], tasks[1], taskSwipped)
         }
+//
+//    Button(onClick = onButtonClick) {
+//            Text("Bring back to center")
+//        }
 
-    Button(onClick = onButtonClick) {
-            Text("Bring back to center")
-        }
-    }
 }
