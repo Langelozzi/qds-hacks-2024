@@ -45,10 +45,6 @@ fun App() {
             Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2),
         )
     }
-    val displayedTasks = remember {
-        Pair(incompleteTasks[0], incompleteTasks[1])
-    }
-
 
     val incompleteTasks = remember {
         mutableStateListOf(
@@ -58,6 +54,10 @@ fun App() {
             Task("assignement 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10",2),
         )
     }
+    val displayedTasks = remember {
+        Pair(incompleteTasks[0], incompleteTasks[1])
+    }
+
     val removeTask: (Task) -> Unit = { task ->
         // this function should remove the passed task from the list
     }
@@ -68,7 +68,6 @@ fun App() {
         incompleteTasks.add(task)
         // you should be able to see when this is swiped it gets logged
     }
-
 
     Column {
         NavBar(navController, activePage, setActivePage)
