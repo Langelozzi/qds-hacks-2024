@@ -142,8 +142,12 @@ fun App() {
     }
 
     val completeTask: (Task) -> Unit = { task ->
-        unsortedTasks.remove(task)
+        sortedTasks.remove(task)
         completedTasks.add(task)
+    }
+
+    val deleteCompletedTask: (Task) -> Unit = {task ->
+        completedTasks.remove(task)
     }
 
     val onReSortTasks: () -> Unit = {
@@ -177,7 +181,7 @@ fun App() {
                         HomePage(setActivePage, sortedTasks, addNewTask, completeTask)
                     }
                     composable(route = "Complete") {
-                        CompletedPage(completedTasks)
+                        CompletedPage(completedTasks, deleteCompletedTask)
                     }
                 }
 
