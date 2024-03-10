@@ -60,11 +60,9 @@ fun TaskCard(
     ) {
 
         Column (modifier = Modifier
-            .fillMaxSize()
             .background(color = Color(0xFF72B3DF))
             .padding(15.dp)
 //            .background(Color.Transparent)
-            ,verticalArrangement = Arrangement.Center
         )
         {
 
