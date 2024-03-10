@@ -193,7 +193,7 @@ fun VsPage(
                                 onReSortTasks()
                                 sortingDone = false
                             }) {
-                            Text("Resort")
+                            Text("Re-sort")
                         }
                         Button(
                             modifier = Modifier.padding(2.dp),
