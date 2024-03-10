@@ -19,8 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bcit.frontend.components.TextFieldWithIcons
-import com.bcit.frontend.dataClassees.Task
-import com.bcit.frontend.dataClassees.TaskType
+import com.bcit.frontend.dataClasses.Task
+import com.bcit.frontend.dataClasses.TaskType
 import com.bcit.frontend.enums.FormFieldsEnum
 
 

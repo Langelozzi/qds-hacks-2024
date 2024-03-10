@@ -1,14 +1,14 @@
-package com.bcit.frontend.dataClassees
+package com.bcit.frontend.dataClasses
 
-enum class TaskType {
-    ASSIGNMENT, LAB, QUIZ, MIDTERM, OTHER
-}
 data class Task(
     val title: String,
-    val course: String,
+    var course: String,
     val type: TaskType,
     val weight: Double,
     val dueDate: String,
     val difficulty: Int,
 )
 
+enum class TaskType {
+    ASSIGNMENT, LAB, QUIZ, MIDTERM, OTHER
+}
