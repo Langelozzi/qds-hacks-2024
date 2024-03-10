@@ -66,25 +66,27 @@ fun BottomRightDrawerComponent(
 @Composable
 fun BottomUpDrawerComponent(
     taskPageContent: @Composable () -> Unit,
+    showBottomSheet: Boolean,
+    onShowBottomSheetChange: (Boolean) -> Unit,
     onDrawerStateChange: (Boolean) -> Unit
 ) {
-    var showBottomSheet by remember { mutableStateOf(false) }
     val coroutineScope = rememberCoroutineScope()
-    val offset = animateDpAsState(targetValue = if (showBottomSheet) 0.dp else 500.dp) // Adjust the offset as needed
+    val offset = animateDpAsState(targetValue = if (showBottomSheet) 0.dp else 500.dp)
 
     LaunchedEffect(showBottomSheet) {
         onDrawerStateChange(showBottomSheet)
     }
+
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
                     coroutineScope.launch {
-                        showBottomSheet = !showBottomSheet
+                        onShowBottomSheetChange(!showBottomSheet) // Use the provided function to change state
                     }
                 },
                 content = {
-                    Icon(Icons.Filled.Add, contentDescription = "Edit", )
+                    Icon(Icons.Filled.Add, contentDescription = "Toggle Drawer")
                 }
             )
         }
