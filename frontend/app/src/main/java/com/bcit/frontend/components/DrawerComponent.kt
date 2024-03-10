@@ -77,7 +77,6 @@ fun BottomUpDrawerComponent(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val offset = animateDpAsState(targetValue = if (showBottomSheet) 0.dp else 500.dp)
-
     LaunchedEffect(showBottomSheet) {
         onDrawerStateChange(showBottomSheet)
     }
@@ -87,18 +86,20 @@ fun BottomUpDrawerComponent(
             FloatingActionButton(
                 onClick = {
                     coroutineScope.launch {
-                        onShowBottomSheetChange(!showBottomSheet) // Use the provided function to change state
+                        onShowBottomSheetChange(!showBottomSheet)
                     }
                 },
                 content = {
                     Icon(Icons.Filled.Add, contentDescription = "Toggle Drawer")
                 }
             )
+
         }
     ) { paddingValues ->
         Box(modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues)) {
+            .padding(paddingValues)
+            .background(Color.Black)) {
 
             AnimatedVisibility(
                 visible = showBottomSheet,
@@ -108,6 +109,7 @@ fun BottomUpDrawerComponent(
                 Box(modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .padding(bottom = offset.value)) {
+                    BackgroundImage()
                     taskPageContent()
                 }
             }
