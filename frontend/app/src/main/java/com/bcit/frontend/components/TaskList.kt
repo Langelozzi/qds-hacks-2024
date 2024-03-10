@@ -3,27 +3,53 @@ package com.bcit.frontend.components
 import android.util.Log
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.AnchoredDraggableState
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import com.bcit.frontend.dataClasses.Task
 
 
-private class StatefulTask (val task: Task,
-                            initState: DragAnchors,
-                            val density: Density) {
-    @OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+private fun StatefulTask (task: Task,
+                  initState: DragAnchors,
+                  density: Density,
+                  ) {
+
+    var minimized by remember { mutableStateOf(true) }
+
     val dragState = AnchoredDraggableState(
-            initialValue = initState,
-            positionalThreshold = { distance: Float -> distance * 0.8f },
-            velocityThreshold = { with(density) { 100.dp.toPx() } },
-            animationSpec = tween()
+        initialValue = initState,
+        positionalThreshold = { distance: Float -> distance * 0.8f },
+        velocityThreshold = { with(density) { 100.dp.toPx() } },
+        animationSpec = tween()
     )
+
+    Box(
+        modifier = Modifier
+            .clickable {
+                Log.d("TaskListClick", "item clicked: $task")
+                minimized = !minimized
+            }
+    ) {
+        if (minimized) {
+            TaskListItem(dragState, task, {})
+        } else {
+            TaskCard(dragState, task, {})
+        }
+    }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -31,26 +57,14 @@ private class StatefulTask (val task: Task,
 fun TaskList(
     tasks: SnapshotStateList<Task>
     ) {
-    val localDensity = LocalDensity.current
-
-    var statefulTasks: MutableList<StatefulTask> = mutableListOf()
-    for (t in tasks){
-        statefulTasks.add(StatefulTask(t, DragAnchors.OnScreen, localDensity))
-    }
-
-    LaunchedEffect(tasks) {
-        val newList = mutableListOf<StatefulTask>()
-        for (t in tasks) {
-            newList.add(StatefulTask(t, DragAnchors.OnScreen, localDensity))
-        }
-        statefulTasks = newList
-        Log.d("TaskListUpdate", "Updated: $newList")
-    }
 
     LazyColumn {
-        items(statefulTasks.size) {
-            val t = statefulTasks[it]
-            TaskCard(t.dragState, t.task, {})
+        items(tasks.size) {
+            StatefulTask(
+                task = tasks[it],
+                initState = DragAnchors.OnScreen,
+                density = LocalDensity.current
+            )
         }
     }
 }
