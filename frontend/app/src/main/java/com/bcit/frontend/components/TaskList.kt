@@ -11,7 +11,7 @@ import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
-import com.bcit.frontend.dataClassees.Task
+import com.bcit.frontend.dataClasses.Task
 
 
 private class StatefulTask (val task: Task,
