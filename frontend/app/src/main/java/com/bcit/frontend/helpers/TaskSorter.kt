@@ -6,7 +6,7 @@ import java.time.LocalDate
 class TaskSorter {
     fun sortTasks(tasks: List<Task>): Array<Task> {
         // Sorting tasks by their calculated value in descending order
-        return tasks.sortedByDescending { getTaskValue(it) }.toTypedArray()
+        return (tasks.sortedByDescending { getTaskValue(it) }.toTypedArray()).reversedArray()
     }
 
     private fun getTaskValue(task: Task): Double {

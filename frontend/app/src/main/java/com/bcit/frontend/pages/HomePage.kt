@@ -38,7 +38,6 @@ fun HomePage(
         ) {
             Column{
                 TaskList(tasks = tasks, completeTask)
-
             }
 
         }
