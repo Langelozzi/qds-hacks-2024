@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -64,12 +65,16 @@ fun BottomRightDrawerComponent(
 }
 @Composable
 fun BottomUpDrawerComponent(
-    taskPageContent: @Composable () -> Unit
+    taskPageContent: @Composable () -> Unit,
+    onDrawerStateChange: (Boolean) -> Unit
 ) {
     var showBottomSheet by remember { mutableStateOf(false) }
     val coroutineScope = rememberCoroutineScope()
     val offset = animateDpAsState(targetValue = if (showBottomSheet) 0.dp else 500.dp) // Adjust the offset as needed
 
+    LaunchedEffect(showBottomSheet) {
+        onDrawerStateChange(showBottomSheet)
+    }
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
