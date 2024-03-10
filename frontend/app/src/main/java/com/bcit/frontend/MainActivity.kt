@@ -16,6 +16,7 @@ import com.bcit.frontend.components.DragAnchors
 import com.bcit.frontend.components.SwipeableCard
 import com.bcit.frontend.dataClasses.Task
 import com.bcit.frontend.dataClasses.TaskType
+import com.bcit.frontend.pages.StartUpPage
 import com.bcit.frontend.pages.VsPage
 
 class MainActivity : ComponentActivity() {

@@ -21,6 +21,7 @@ import com.bcit.frontend.enums.NavPages
 import com.bcit.frontend.pages.BackgroundImage
 import com.bcit.frontend.pages.CompletedPage
 import com.bcit.frontend.pages.HomePage
+import com.bcit.frontend.pages.StartUpPage
 import com.bcit.frontend.pages.VsPage
 import java.time.LocalDate
 
@@ -28,9 +29,10 @@ import java.time.LocalDate
 fun App() {
     val navController = rememberNavController()
 
-    var activePage by remember { mutableStateOf(NavPages.Home) }
+    var activePage by remember { mutableStateOf(NavPages.StartUp) }
     LaunchedEffect(activePage) {
         when (activePage) {
+            NavPages.StartUp -> navController.navigate("StartUpPage")
             NavPages.Home -> navController.navigate("Home")
             NavPages.VS -> navController.navigate("VS")
             NavPages.Complete -> navController.navigate("Complete")
@@ -163,8 +165,9 @@ fun App() {
                 .fillMaxSize()
         )
         {
-
-            NavBar(navController, activePage, setActivePage)
+            if (activePage != NavPages.StartUp) {
+                NavBar(navController, activePage, setActivePage)
+            }
 
             Box(
                 modifier = Modifier
@@ -172,7 +175,7 @@ fun App() {
             {
                 NavHost(
                     navController = navController,
-                    startDestination = "home"
+                    startDestination = "StartUpPage"
                 ) {
                     composable(route = "VS") {
                         VsPage(setActivePage, unsortedTasks, addSortedTasks, onReSortTasks)
@@ -182,6 +185,9 @@ fun App() {
                     }
                     composable(route = "Complete") {
                         CompletedPage(completedTasks, deleteCompletedTask)
+                    }
+                    composable(route = "StartUpPage") {
+                        StartUpPage(setActivePage)
                     }
                 }
 
