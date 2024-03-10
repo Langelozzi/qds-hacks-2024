@@ -28,14 +28,14 @@ fun NavBar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(10.dp),
         horizontalArrangement = Arrangement.Center
     ) {
         // rounded border
         Box(
             modifier = Modifier
                 .shadow(12.dp, shape = RoundedCornerShape(30.dp))
-                .padding(1.dp) // Adjust padding as needed
+                .padding(2.dp) // Adjust padding as needed
         ) {
             Row(
                 modifier = Modifier

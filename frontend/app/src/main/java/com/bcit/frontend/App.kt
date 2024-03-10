@@ -2,6 +2,8 @@ package com.bcit.frontend
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -50,7 +52,7 @@ fun App() {
             Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.stats2),
             Task("quiz 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.algolab3),
             Task("midterm 1", "Maths", TaskType.LAB, 0.05, "2022-10-10",2, R.drawable.ooplab2),
-            Task("assignement 1", "AIML", TaskType.LAB, 0.05, "2022-10-10",2, R.drawable.ooplab1),
+            Task("assignment 1", "AIML", TaskType.LAB, 0.05, "2022-10-10",2, R.drawable.ooplab1),
             Task("Lab 1", "CPSC", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.statslab2),
             Task("Lab 1", "Stats", TaskType.LAB, 0.05, "2022-10-10", 2, R.drawable.algolab3),
         )
@@ -81,7 +83,6 @@ fun App() {
         NavBar(navController, activePage, setActivePage)
         Box(
             modifier = Modifier
-
         ) {
             NavHost(
                 navController = navController,
