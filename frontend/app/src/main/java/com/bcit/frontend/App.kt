@@ -79,6 +79,11 @@ fun App() {
         // you should be able to see when this is swiped it gets logged
     }
 
+    val completeTask: (Task) -> Unit = { task ->
+        incompleteTasks.remove(task)
+        completedTasks.add(task)
+    }
+
     Column {
         NavBar(navController, activePage, setActivePage)
         Box(
@@ -92,10 +97,10 @@ fun App() {
                     VsPage(displayedTasks, taskSwipped)
                 }
                 composable(route = "Home") {
-                    HomePage(addTask)
+                    HomePage(incompleteTasks, addTask, completeTask)
                 }
                 composable(route = "Complete") {
-                    CompletedPage()
+                    CompletedPage(completedTasks)
                 }
             }
         }
