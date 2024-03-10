@@ -9,6 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.bcit.frontend.components.BottomUpDrawerComponent
@@ -16,13 +17,13 @@ import com.bcit.frontend.components.TaskList
 import com.bcit.frontend.dataClasses.Task
 
 @Composable
-fun HomePage(tasks: List<Task>) {
-    var drawerIsActive by remember { mutableStateOf(false) } // This state now directly controls the bottom drawer's visibility
+fun HomePage(tasks: SnapshotStateList<Task>, addTask: (task: Task) -> Unit) {
+    var drawerIsActive by remember { mutableStateOf(false) }
 
     TaskList(tasks = tasks)
 
     BottomUpDrawerComponent(
-        taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }) },
+        taskPageContent = { FormPage(onSubmit = { drawerIsActive = false }, addTask) },
         showBottomSheet = drawerIsActive,
         onShowBottomSheetChange = { drawerIsActive = it },
         onDrawerStateChange = { isActive -> drawerIsActive = isActive }
