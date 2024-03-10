@@ -62,14 +62,19 @@ fun FormPage(onSubmit: (Task) -> Unit, addTask: (task: Task) -> Unit) {
                 val title = formFieldValues[FormFieldsEnum.Title] ?: ""
                 val courseName = formFieldValues[FormFieldsEnum.CourseName] ?: ""
                 val taskWeight = formFieldValues[FormFieldsEnum.Weight]?.toDoubleOrNull() ?: 0.0
-                val dueDate = formFieldValues[FormFieldsEnum.DueDate] ?: ""
+                val dueDateStr = formFieldValues[FormFieldsEnum.DueDate] ?: ""
+                var dueDateDate: LocalDate = LocalDate.now().plusDays(10)
+                    try {
+                        dueDateDate = LocalDate.parse(dueDateStr)
+                    } catch (e: Exception) {
+                    }
 
                 val task = Task(
                     title = title,
                     course = courseName,
                     type = taskType,
                     weight = taskWeight,
-                    dueDate = LocalDate.parse(dueDate),
+                    dueDate = dueDateDate,
                     difficulty = difficulty
                 )
                 addTask(task)
